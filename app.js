@@ -250,10 +250,14 @@ function renderCurrentQuestion() {
   $('overallProgress').style.width = `${(curr / total) * 100}%`;
 
   // Question Card Meta
-  $('cardQuestionNum').textContent = `QUESTION ${curr} OF ${total}`;
-  $('sourcePage').textContent = q.page ? `Page ${q.page}` : '';
-  $('domainTag').textContent = q.category;
-  $('questionText').textContent = q.question;
+  const cardQNum = $('cardQuestionNum');
+  if (cardQNum) cardQNum.textContent = `QUESTION ${curr} OF ${total}`;
+  const srcPage = $('sourcePage');
+  if (srcPage) srcPage.textContent = q.page ? `Page ${q.page}` : '';
+  const domainTag = $('domainTag');
+  if (domainTag) domainTag.textContent = q.category;
+  const qText = $('questionText');
+  if (qText) qText.textContent = q.question;
 
   // Render options
   const optionsContainer = $('optionsList');
